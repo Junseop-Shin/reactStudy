@@ -15,14 +15,16 @@ class Counter extends Component {
         <button
           // onClick을 통해 버튼이 클릭되었을 때 호출할 함수 지정
           onClick={() => {
-            // this.setState({ number: number + 1});을 두번 반복한다고 +2가 되진 않음
-            // setState를 사용해도 state값이 바로 바뀌지 않기 때문에
-            // 이럴 때는 함수 인자 전달을 반복해 원하는 변화를 줄 수 있다.
-            this.setState((prevState) => {
-              return {
-                number: prevState.number + 1,
-              };
-            });
+            //callback 함수를 이용해 setState 적용 후에 작업을 처리할 수 있다.
+            this.setState(
+              {
+                number: number + 1,
+              },
+              () => {
+                console.log("방금 setState가 호출되었습니다.");
+                console.log(this.state);
+              }
+            );
           }}
         >
           +1
