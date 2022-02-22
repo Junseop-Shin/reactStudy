@@ -1,10 +1,12 @@
 import React from "react";
 // import MyComponent from './MyComponent';
 // import Counter from './Counter';
-import Say from "./Say";
+// import Say from "./Say";
+import EventPractice from "./EventPractice";
 
 const App = () => {
-  return <Say />;
+  return <EventPractice />;
+  // return <Say />;
   // return <Counter />;
   // return <MyComponent name="React" favoriteNumber={1}>리액트</MyComponent>;
 };
