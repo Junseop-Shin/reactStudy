@@ -1,15 +1,39 @@
 import React, { Component } from "react";
+import ErrorBoundary from "./ErrorBoundary";
 // import ScrollBox from "./ScrollBox";
 // import MyComponent from './MyComponent';
 // import Counter from './Counter';
 // import Say from "./Say";
 // import EventPractice from "./EventPractice";
 // import ValidationSample from "./ValidationSample";
-import IterationSample from "./IterationSample";
+// import IterationSample from "./IterationSample";
+import LifeCycleSample from "./LifeCycleSample";
+
+// 랜덤 색상을 성성
+function getRandomColor() {
+  return "#" + Math.floor(Math.random() * 16777215).toString(16);
+}
 
 class App extends Component {
+  state = {
+    color: "#000000",
+  };
+
+  handleClick = () => {
+    this.setState({
+      color: getRandomColor(),
+    });
+  };
+
   render() {
-    return <IterationSample />;
+    return (
+      <div>
+        <button onClick={this.handleClick}>랜덤 색상</button>
+        <ErrorBoundary>
+          <LifeCycleSample color={this.state.color} />
+        </ErrorBoundary>
+      </div>
+    );
   }
 }
 // const App = () => {
