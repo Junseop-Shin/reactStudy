@@ -66,7 +66,7 @@ function todos(state = initialState, action) {
     case REMOVE:
       return {
         ...state,
-        remove: state.todos.filter((todo) => todo.id !== action.id),
+        todos: state.todos.filter((todo) => todo.id !== action.id),
       };
     default:
       return state;
